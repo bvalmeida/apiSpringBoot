@@ -27,14 +27,13 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact getContactByName(String name) {
-        List<Contact> contactResponses = this.contactRepository.findAll();
-        Contact c = contactResponses.stream().filter(contact -> contact.getName().equals(name)).findAny().get();
-        return c;
+    public List<ContactResponse> getContactByName(String name) {
+        return (List<ContactResponse>) this.contactRepository.findAll().stream().filter(contactResponse -> contactResponse.getName().equals(name)).findAny().get();
+
     }
 
     @Override
-    public Contact getByName(String name) {
+    public ContactResponse getByName(String name) {
         return this.contactRepository.findByName(name);
 
     }

@@ -10,8 +10,8 @@ public interface ContactService {
 
     public void createContact(ContactRequest request);
     public void removeContact(Long id);
-    public Contact getContactByName(String name);
-    public Contact getByName(String name);
+    public List<ContactResponse> getContactByName(String name);
+    public ContactResponse getByName(String name);
     public List<ContactResponse> getAllContact();
     public void updateContact(ContactRequest request);
 }

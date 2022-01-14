@@ -37,7 +37,7 @@ public class ContactController {
 
     @GetMapping("/findy-by-name")
     @ResponseStatus(HttpStatus.OK)
-    public Contact getContactByName(@RequestParam String name){
+    public ContactResponse getContactByName(@RequestParam String name){
         return  this.contactService.getByName(name);
     }
 
