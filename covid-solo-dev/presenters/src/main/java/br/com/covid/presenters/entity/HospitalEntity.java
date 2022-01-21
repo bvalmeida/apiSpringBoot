@@ -4,33 +4,36 @@ package br.com.covid.presenters.entity;
 import br.com.covid.ports.output.OutputPort;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class HospitalEntity {
 
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String nome;
 
+    @Column
     private String cnpj;
 
+    @Column
     private String endereco;
 
     @OneToOne
-    @JoinColumn(name = "hospital_entity_loc_id")
     private HospitalEntityLoc hospitalEntityLoc;
 
 
-    public HospitalEntity converteHospitalEntity(OutputPort outputPort){
+    public static HospitalEntity converteHospitalEntity(OutputPort outputPort){
 
         HospitalEntityLoc hospitalEntityLoc = HospitalEntityLoc.builder()
                 .id(null)

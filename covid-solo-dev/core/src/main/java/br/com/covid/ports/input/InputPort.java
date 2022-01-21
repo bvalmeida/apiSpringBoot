@@ -15,20 +15,6 @@ public class InputPort {
     private InputPortLoc inputPortLoc;
 
 
-    public OutputPort converteOutputPort(InputPort inputPort){
 
-        OutputPortLoc outputPortLoc = OutputPortLoc.builder()
-                .latitude(inputPort.inputPortLoc.getLatitude())
-                .longitude(inputPort.inputPortLoc.getLongitude())
-                .build();
-
-        return OutputPort.builder()
-                .cnpj(inputPort.cnpj)
-                .nome(inputPort.nome)
-                .endereco(inputPort.endereco)
-                .outputPortLoc(outputPortLoc)
-                .build();
-
-    }
 
 }

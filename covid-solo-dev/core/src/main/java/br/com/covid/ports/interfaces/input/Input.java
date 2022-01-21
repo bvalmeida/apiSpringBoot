@@ -4,5 +4,5 @@ import br.com.covid.ports.input.InputPort;
 
 public interface Input {
 
-    void save(InputPort input);
+    void save(InputPort inputPort);
 }

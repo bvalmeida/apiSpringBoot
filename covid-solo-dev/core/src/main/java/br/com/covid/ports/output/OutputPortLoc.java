@@ -7,6 +7,7 @@ import lombok.Data;
 @Builder
 public class OutputPortLoc {
 
+    private Long id;
     private String longitude;
     private String latitude;
 }
