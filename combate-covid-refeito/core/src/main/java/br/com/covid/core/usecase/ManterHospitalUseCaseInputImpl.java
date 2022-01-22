@@ -22,5 +22,10 @@ public class ManterHospitalUseCaseInputImpl implements ManterHospitalInputPort {
         return this.manterHospitalOutputPort.salvarHospital(HospitalOutputPort.converterInputToOutput(inputPort));
     }
 
+    @Override
+    public List<HospitalOutputPort> getAll() {
+        return this.manterHospitalOutputPort.getAll();
+    }
+
 
 }

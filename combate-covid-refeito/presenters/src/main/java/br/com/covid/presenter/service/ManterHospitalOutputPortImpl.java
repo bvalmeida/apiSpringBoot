@@ -6,6 +6,9 @@ import br.com.covid.presenter.entity.HospitalEntity;
 import br.com.covid.presenter.repository.HospitalRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Service
 public class ManterHospitalOutputPortImpl implements ManterHospitalOutputPort {
@@ -21,7 +24,12 @@ public class ManterHospitalOutputPortImpl implements ManterHospitalOutputPort {
         var entity = this.hospitalRepository.save(HospitalEntity.converterOutputPortToEntity(hospitalOutputPort));
         return HospitalEntity.converterHospitalOutputPort(entity);
 
-        //return this.hospitalRepository.save(HospitalEntity.converterOutputPortToEntity(hospitalOutputPort));
+    }
+
+    @Override
+    public List<HospitalOutputPort> getAll() {
+        return this.hospitalRepository.findAll().stream().map(HospitalEntity::converterHospitalOutputPort)
+                .collect(Collectors.toList());
     }
 
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface ManterHospitalInputPort {
 
     HospitalOutputPort salvarHospital(HospitalInputPort inputPort);
+    public List<HospitalOutputPort> getAll();
+
 }
