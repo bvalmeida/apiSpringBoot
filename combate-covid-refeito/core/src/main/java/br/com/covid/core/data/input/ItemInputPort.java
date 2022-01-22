@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 public class ItemInputPort {
 
     private int quantidade;
-
     private Integer pontosDoItem;
-
     private String tipoItem;
+
+
+
 }

@@ -36,12 +36,4 @@ public class ManterHospitalUseCaseInputImpl implements ManterHospitalInputPort {
     public void atualizarPercentualDeOcupacao(Long hospitalId, Float percentual) {
 
     }
-
-    //@Override
-    //public void atualizarPercentualDeOcupacao(Long hospitalId, Float percentual) {
-
-    //}
-
-
-
 }

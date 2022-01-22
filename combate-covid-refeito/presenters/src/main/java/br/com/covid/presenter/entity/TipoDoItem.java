@@ -65,9 +65,6 @@ public enum TipoDoItem implements GerenciaItem {
     public Integer getValor(){
         return this.valor;
     }
-
-
-
 }
 
 

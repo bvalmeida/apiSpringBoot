@@ -28,6 +28,7 @@ public class LocalizacaoEntity {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         LocalizacaoEntity that = (LocalizacaoEntity) o;
@@ -38,5 +39,4 @@ public class LocalizacaoEntity {
     public int hashCode() {
         return getClass().hashCode();
     }
-
 }

@@ -18,6 +18,7 @@ public class HospitalResponse {
     private String endereco;
     private float percentualOcupacao;
     private LocalizacaoResponse localizacao;
+    private InventarioResponse inventarioResponse;
 
 
     public static HospitalResponse converteHospitalOutputPortToHospitalResponse(HospitalOutputPort hospitalOutputPort){
@@ -28,6 +29,12 @@ public class HospitalResponse {
                 .longitude(hospitalOutputPort.getLocalizacao().getLongitude())
                 .build();
 
+        InventarioResponse inventarioResponse = InventarioResponse.builder()
+                .id(hospitalOutputPort.getId())
+                .pontosDoInventario(hospitalOutputPort.getInventario().getPontosDoInventario())
+                .itemResponse(ItemResponse.itemOutputPortToItemResponse(hospitalOutputPort.getInventario().getItens()))
+                .build();
+
         HospitalResponse hospitalResponse = HospitalResponse.builder()
                 .id(hospitalOutputPort.getId())
                 .nome(hospitalOutputPort.getNome())
@@ -35,6 +42,7 @@ public class HospitalResponse {
                 .endereco(hospitalOutputPort.getEndereco())
                 .localizacao(localizacaoResponse)
                 .percentualOcupacao(hospitalOutputPort.getPercentualOcupacao())
+                .inventarioResponse(inventarioResponse)
                 .build();
         return hospitalResponse;
 

@@ -22,16 +22,24 @@ public class HospitalOutputPort {
 
 
     public static HospitalOutputPort converterInputToOutput(HospitalInputPort hospitalInputPort) {
+
         LocalizacaoOutputPort localizacaoOutputPort = LocalizacaoOutputPort.builder()
                 .latitude(hospitalInputPort.getLocalizacao().getLatitude())
                 .longitude(hospitalInputPort.getLocalizacao().getLongitude())
                 .build();
+
+        InventarioOutputPort inventarioOutputPort = InventarioOutputPort.builder()
+                .pontosDoInventario(hospitalInputPort.getInventario().getPontosDoInventario())
+                .itens(ItemOutputPort.itemInputPortToItemOutputPort(hospitalInputPort.getInventario().getItens()))
+                .build();
+
         return HospitalOutputPort.builder()
                 .cnpj(hospitalInputPort.getCnpj())
                 .endereco(hospitalInputPort.getEndereco())
                 .nome(hospitalInputPort.getNome())
                 .localizacao(localizacaoOutputPort)
                 .percentualOcupacao(hospitalInputPort.getPercentualOcupacao())
+                .inventario(inventarioOutputPort)
                 .build();
     }
 }

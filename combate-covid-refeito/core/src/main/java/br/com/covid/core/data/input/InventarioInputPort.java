@@ -14,6 +14,8 @@ import java.util.List;
 public class InventarioInputPort {
 
     private Integer pontosDoInventario = 0;
-
     private List<ItemInputPort> itens;
+
+
+
 }
