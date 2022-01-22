@@ -1,11 +1,15 @@
 package br.com.covid.api.request;
 
 import br.com.covid.core.data.input.HospitalInputPort;
+import br.com.covid.core.data.input.ItemInputPort;
 import br.com.covid.core.data.input.LocalizacaoInputPort;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+
 
 @Data
 @Builder
@@ -18,6 +22,7 @@ public class HospitalRequest {
     private String endereco;
     private float percentualOcupacao;
     private LocalizacaoRequest localizacao;
+    private InventarioRequest inventario;
 
 
     public static HospitalInputPort converterRequestToInputPort(HospitalRequest request){
@@ -27,6 +32,7 @@ public class HospitalRequest {
                 .longitude(request.localizacao.getLongitude())
                 .build();
 
+
         return HospitalInputPort.builder()
                 .cnpj(request.cnpj)
                 .endereco(request.endereco)
@@ -35,5 +41,11 @@ public class HospitalRequest {
                 .percentualOcupacao(request.getPercentualOcupacao())
                 .build();
     }
+
+
+
+
+
+
 
 }

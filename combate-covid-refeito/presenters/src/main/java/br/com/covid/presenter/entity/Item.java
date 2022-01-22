@@ -12,7 +12,6 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Item {
 
     @Id
@@ -24,5 +23,7 @@ public class Item {
     private Integer pontosDoItem;
 
     private TipoDoItem tipoDoItem;
+
+
 
 }

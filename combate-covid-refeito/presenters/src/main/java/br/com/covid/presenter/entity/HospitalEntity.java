@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class HospitalEntity {
 
     @Id
@@ -29,6 +28,10 @@ public class HospitalEntity {
 
     @Column
     private float percentualOcupacao;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "inventario_ID")
+    private InventarioEntity inventario;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "localizacao_ID")

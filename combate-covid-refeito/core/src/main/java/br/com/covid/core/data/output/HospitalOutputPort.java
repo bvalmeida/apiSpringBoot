@@ -1,11 +1,15 @@
 package br.com.covid.core.data.output;
 
 import br.com.covid.core.data.input.HospitalInputPort;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class HospitalOutputPort {
 
     private Long id;
@@ -14,6 +18,7 @@ public class HospitalOutputPort {
     private String endereco;
     private float percentualOcupacao;
     private LocalizacaoOutputPort localizacao;
+    private InventarioOutputPort inventario;
 
 
     public static HospitalOutputPort converterInputToOutput(HospitalInputPort hospitalInputPort) {
