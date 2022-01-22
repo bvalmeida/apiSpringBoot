@@ -6,6 +6,8 @@ import br.com.covid.core.ports.input.ManterHospitalInputPort;
 import br.com.covid.core.ports.output.ManterHospitalOutputPort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ManterHospitalUseCaseInputImpl implements ManterHospitalInputPort {
 
@@ -16,7 +18,9 @@ public class ManterHospitalUseCaseInputImpl implements ManterHospitalInputPort {
 
     }
     @Override
-    public void salvarHospital(HospitalInputPort inputPort) {
-        this.manterHospitalOutputPort.salvarHospital(HospitalOutputPort.converterInputToOutput(inputPort));
+    public HospitalOutputPort salvarHospital(HospitalInputPort inputPort) {
+        return this.manterHospitalOutputPort.salvarHospital(HospitalOutputPort.converterInputToOutput(inputPort));
     }
+
+
 }

@@ -1,6 +1,7 @@
 package br.com.covid.presenter.entity;
 
 import br.com.covid.core.data.output.HospitalOutputPort;
+import br.com.covid.core.data.output.LocalizacaoOutputPort;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +29,8 @@ public class HospitalEntity {
     @Column
     private String endereco;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn (name = "localizacao_ID")
     private LocalizacaoEntity localizacao;
 
 
@@ -43,6 +45,22 @@ public class HospitalEntity {
                 .endereco(hospitalOutputPort.getEndereco())
                 .nome(hospitalOutputPort.getNome())
                 .localizacao(localizacaoEntity)
+                .build();
+
+    }
+    public static HospitalOutputPort converterHospitalOutputPort(HospitalEntity hospitalEntity){
+        LocalizacaoOutputPort localizacaoOutputPort = LocalizacaoOutputPort.builder()
+                .id(hospitalEntity.id)
+                .latitude(hospitalEntity.getLocalizacao().getLatitude())
+                .longitude(hospitalEntity.getLocalizacao().getLongitude())
+                .build();
+
+        return HospitalOutputPort.builder()
+                .id(hospitalEntity.id)
+                .nome(hospitalEntity.getNome())
+                .cnpj(hospitalEntity.getCnpj())
+                .endereco(hospitalEntity.getEndereco())
+                .localizacao(localizacaoOutputPort)
                 .build();
 
     }

@@ -1,6 +1,7 @@
 package br.com.covid.api.controller;
 
 import br.com.covid.api.request.HospitalRequest;
+import br.com.covid.api.response.HospitalResponse;
 import br.com.covid.core.ports.input.ManterHospitalInputPort;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +16,11 @@ public class HospitalController {
    }
 
    @PostMapping
-   public void criarHospital(@RequestBody HospitalRequest hospitalRequest){
-      this.manterHospital.salvarHospital(HospitalRequest.converterRequestToInputPort(hospitalRequest));
+   public HospitalResponse criarHospital(@RequestBody HospitalRequest hospitalRequest){
+      var response = this.manterHospital.salvarHospital(HospitalRequest.converterRequestToInputPort(hospitalRequest));
+      return HospitalResponse.converteHospitalOutputPortToHospitalResponse(response);
+
+      //this.manterHospital.salvarHospital(HospitalRequest.converterRequestToInputPort(hospitalRequest));
 
    }
 
