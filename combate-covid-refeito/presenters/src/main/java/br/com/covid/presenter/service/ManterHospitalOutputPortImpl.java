@@ -27,9 +27,24 @@ public class ManterHospitalOutputPortImpl implements ManterHospitalOutputPort {
     }
 
     @Override
-    public List<HospitalOutputPort> getAll() {
-        return this.hospitalRepository.findAll().stream().map(HospitalEntity::converterHospitalOutputPort)
+    public List<HospitalOutputPort> list() {
+        return this.hospitalRepository.findAll()
+                .stream()
+                .map(HospitalEntity::converterHospitalOutputPort)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void deletarHospital(Long id) {
+        this.hospitalRepository.deleteById(id);
+    }
+
+    @Override
+    public void atualizarPercentualDeOcupacao(Long hospitalId, Float percentual) {
+        var hospitalEntity = this.hospitalRepository.getById(hospitalId);
+        var hospitalAtualizacao = hospitalEntity.atualizaPercentualDeOcupacao(percentual);
+        this.hospitalRepository.save(hospitalEntity);
+    }
+
 
 }

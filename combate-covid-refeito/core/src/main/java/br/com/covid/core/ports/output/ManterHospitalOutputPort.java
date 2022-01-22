@@ -7,5 +7,9 @@ import java.util.List;
 public interface ManterHospitalOutputPort {
 
     HospitalOutputPort salvarHospital(HospitalOutputPort hospitalOutputPort);
-    public List<HospitalOutputPort> getAll();
+    List<HospitalOutputPort> list();
+    void deletarHospital(Long id);
+    void atualizarPercentualDeOcupacao(Long hospitalId, Float percentual);
+
+
 }

@@ -16,7 +16,9 @@ public class HospitalResponse {
     private String nome;
     private String cnpj;
     private String endereco;
+    private float percentualOcupacao;
     private LocalizacaoResponse localizacao;
+
 
     public static HospitalResponse converteHospitalOutputPortToHospitalResponse(HospitalOutputPort hospitalOutputPort){
 
@@ -32,6 +34,7 @@ public class HospitalResponse {
                 .cnpj(hospitalOutputPort.getCnpj())
                 .endereco(hospitalOutputPort.getEndereco())
                 .localizacao(localizacaoResponse)
+                .percentualOcupacao(hospitalOutputPort.getPercentualOcupacao())
                 .build();
         return hospitalResponse;
 

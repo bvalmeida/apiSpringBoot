@@ -23,9 +23,25 @@ public class ManterHospitalUseCaseInputImpl implements ManterHospitalInputPort {
     }
 
     @Override
-    public List<HospitalOutputPort> getAll() {
-        return this.manterHospitalOutputPort.getAll();
+    public List<HospitalOutputPort> list() {
+        return this.manterHospitalOutputPort.list();
     }
+
+    @Override
+    public void deletarHospital(Long id) {
+        this.manterHospitalOutputPort.deletarHospital(id);
+    }
+
+    @Override
+    public void atualizarPercentualDeOcupacao(Long hospitalId, Float percentual) {
+
+    }
+
+    //@Override
+    //public void atualizarPercentualDeOcupacao(Long hospitalId, Float percentual) {
+
+    //}
+
 
 
 }

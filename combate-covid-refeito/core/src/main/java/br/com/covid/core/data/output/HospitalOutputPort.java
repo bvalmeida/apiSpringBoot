@@ -12,7 +12,9 @@ public class HospitalOutputPort {
     private String nome;
     private String cnpj;
     private String endereco;
+    private float percentualOcupacao;
     private LocalizacaoOutputPort localizacao;
+
 
     public static HospitalOutputPort converterInputToOutput(HospitalInputPort hospitalInputPort) {
         LocalizacaoOutputPort localizacaoOutputPort = LocalizacaoOutputPort.builder()
@@ -24,6 +26,7 @@ public class HospitalOutputPort {
                 .endereco(hospitalInputPort.getEndereco())
                 .nome(hospitalInputPort.getNome())
                 .localizacao(localizacaoOutputPort)
+                .percentualOcupacao(hospitalInputPort.getPercentualOcupacao())
                 .build();
     }
 }

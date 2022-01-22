@@ -16,7 +16,9 @@ public class HospitalRequest {
     private String nome;
     private String cnpj;
     private String endereco;
+    private float percentualOcupacao;
     private LocalizacaoRequest localizacao;
+
 
     public static HospitalInputPort converterRequestToInputPort(HospitalRequest request){
 
@@ -30,6 +32,7 @@ public class HospitalRequest {
                 .endereco(request.endereco)
                 .nome(request.nome)
                 .localizacao(localizacaoInputPort)
+                .percentualOcupacao(request.getPercentualOcupacao())
                 .build();
     }
 
